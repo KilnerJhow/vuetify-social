@@ -1,0 +1,52 @@
+<template>
+    <div class="navbar">
+        <v-toolbar flat class="grey lighten-2">
+            <v-app-bar-nav-icon @click="leftDrawer = !leftDrawer" class="hidden-md-and-up"></v-app-bar-nav-icon>
+            <v-toolbar-title class="text-uppercase">
+                <span class="font-weight-light">Vuetify</span>
+                <span>Social</span>
+            </v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn plain fab left class="hidden-md-and-up" @click="rightDrawer = !rightDrawer">
+                <v-icon>mdi-chat</v-icon>
+            </v-btn>
+        </v-toolbar>
+        <v-navigation-drawer v-model="leftDrawer" absolute class="indigo hidden-md-and-up">
+            <v-list>
+                <v-list-item>
+                    <v-list-item-action>
+                        <v-icon class="white--text">dashboard</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title class="white--text">Dashboard</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+            </v-list>
+        </v-navigation-drawer>
+
+        <v-navigation-drawer v-model="rightDrawer" absolute right>
+            <v-list>
+                <v-list-item>
+                    <v-list-item-action>
+                        <v-icon>mdi-send</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title>Fulano</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+            </v-list>
+        </v-navigation-drawer>
+
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            leftDrawer: false,
+            rightDrawer: false
+        }
+    }
+}
+</script>
