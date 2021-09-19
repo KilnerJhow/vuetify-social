@@ -55,20 +55,12 @@ export default {
     changeContent(content){
       console.log("Retornou: "+ content.text)
       console.log("Retornou: "+ content.index)
-      for(let i = 0; i < this.publications.length; i++) {
-        if(this.publications[i].id == content.index) {
-          this.publications[i].text = content.text          
-        }
-      }
+      let objIndex = this.publications.findIndex((obj => obj.id == content.index));
+      this.publications[objIndex].text = content.text
     },
     removeContent(index){
-      // console.log(this.publications)
-      // console.log("ID: " + index)
-      for(let i = 0; i < this.publications.length; i++) {
-        if(this.publications[i].id == index) {      
-          this.publications.splice(i, 1)
-        }
-      }
+      let objIndex = this.publications.findIndex((obj => obj.id == index));
+      this.publications.splice(objIndex, 1)
     },
     addContent(content){
       let temp = {

@@ -8,8 +8,8 @@
                     <v-textarea v-model="text" auto-grow placeholder="Bora postar?" class="pa-3" height="1%"></v-textarea>
                     <v-card-actions>
                         <v-spacer></v-spacer>
-                        <v-btn @click="publish()">Publicar</v-btn>
-                        <v-btn @click="cancel()">Cancelar</v-btn>
+                        <v-btn text color="primary" @click="publish()">Publicar</v-btn>
+                        <v-btn text color="red" @click="cancel()">Cancelar</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-col> 

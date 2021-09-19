@@ -38,7 +38,7 @@
             </v-dialog>
             <v-dialog v-model="dialog_delete" width="500">
               <template v-slot:activator="{ on, attrs }">
-                <v-btn v-bind="attrs" v-on="on" text>
+                <v-btn v-bind="attrs" v-on="on" text retain-focus-on-click>
                   <v-icon>mdi-delete</v-icon>
                 </v-btn>
               </template>
