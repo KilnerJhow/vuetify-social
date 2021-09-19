@@ -1,9 +1,9 @@
 <template>
     <v-row justify="center" class="ma-2" no-gutters>
         <v-col lg="8">
-            <v-card flat width="100%">
-                <v-avatar>JK</v-avatar>
-                <span>Jonathan Kilner</span>
+            <v-card flat width="100%" class="pa-3">
+                <v-avatar color="primary white--text">JK</v-avatar>
+                <span class="pa-3">Jonathan Kilner</span>
                 <v-textarea v-model="text" auto-grow placeholder="Bora postar?" class="pa-3" height="1%"></v-textarea>
                 <v-card-actions>
                     <v-spacer></v-spacer>

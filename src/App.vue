@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main class="grey lighten-4">
-      <tool-bar />
+      <tool-bar @delete-all="deleteAllContent($event)"/>
       <add-publication @publish="addContent($event)"/>
       <div v-for="(publication, index) in reversePublication" :key="index">
       <!-- <div v-for="(publication, index) in publications.slice().reverse()" :key="index"> -->
@@ -53,8 +53,13 @@ export default {
   },
   methods: {
     changeContent(content){
-      // console.log("Retornou: "+ content.index)
-      this.publications[content.index].text = content.text
+      console.log("Retornou: "+ content.text)
+      console.log("Retornou: "+ content.index)
+      for(let i = 0; i < this.publications.length; i++) {
+        if(this.publications[i].id == content.index) {
+          this.publications[i].text = content.text          
+        }
+      }
     },
     removeContent(index){
       // console.log(this.publications.splice(index, 1))
@@ -68,6 +73,11 @@ export default {
       }
       this.publications.push(temp)
       this.id += 1
+    },
+    deleteAllContent(content){
+      if(content == 'y') {
+        this.publications = []
+      }
     }
   }
 };

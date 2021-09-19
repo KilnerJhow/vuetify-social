@@ -7,7 +7,7 @@
             <v-avatar color="primary white--text">{{nameInitials}}</v-avatar>
             <span class="pa-3">{{publicationProp.name}}</span>
             <v-spacer></v-spacer>
-            <v-dialog v-model="dialog" width="700">
+            <v-dialog v-model="dialog_edit" width="700">
               <template v-slot:activator="{ on, attrs }">
                 <v-btn v-bind="attrs" v-on="on" text @click="showContent()">
                   <v-icon>mdi-pencil-outline</v-icon>
@@ -30,7 +30,7 @@
                   >
                     Confirmar
                   </v-btn>
-                  <v-btn color="red" text @click="dialog = false">
+                  <v-btn color="red" text @click="closeDialogEdit()">
                     Cancelar
                   </v-btn>
                 </v-card-actions>
@@ -50,7 +50,7 @@
                   <v-btn text @click="removeContent()" color="primary">
                     Sim
                   </v-btn>
-                  <v-btn text @click="dialog_delete=false" color="red">Não</v-btn>
+                  <v-btn text @click="closeDialogDelete()" color="red">Não</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
@@ -94,7 +94,7 @@ export default {
   data () {
     return {
       dialog_delete: false,
-      dialog: false,
+      dialog_edit: false,
       textField: ''
     }
   },
@@ -105,7 +105,7 @@ export default {
         text: this.textField,
         index: this.publicationProp.id
       }
-      this.dialog = false
+      this.dialog_edit = false
       this.$emit('change-content', content)
     },
     removeContent(){
@@ -116,8 +116,11 @@ export default {
     showContent(){
       this.textField = this.publicationProp.text
     },
-    test() {
-      console.log(this.textField)
+    closeDialogDelete(){
+      this.dialog_delete = false
+    },
+    closeDialogEdit(){
+      this.dialog_edit = false
     }
   }
 }
