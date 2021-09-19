@@ -1,7 +1,7 @@
 <template>
     <div class="navbar">
-        <v-toolbar flat class="grey lighten-2">
-            <v-app-bar-nav-icon @click="leftDrawer = !leftDrawer" class="hidden-md-and-up"></v-app-bar-nav-icon>
+        <v-app-bar flat class="grey lighten-2">
+            <!-- <v-app-bar-nav-icon @click="leftDrawer = !leftDrawer" class="hidden-md-and-up"></v-app-bar-nav-icon> -->
             <v-toolbar-title class="text-uppercase">
                 <span class="font-weight-light">Vuetify</span>
                 <span>Social</span>
@@ -28,7 +28,7 @@
             <!-- <v-btn plain fab left class="hidden-md-and-up" @click="rightDrawer = !rightDrawer">
                 <v-icon>mdi-chat</v-icon>
             </v-btn> -->
-        </v-toolbar>
+        </v-app-bar>
         <!-- <v-navigation-drawer v-model="leftDrawer" absolute class="indigo hidden-md-and-up">
             <v-list>
                 <v-list-item>
