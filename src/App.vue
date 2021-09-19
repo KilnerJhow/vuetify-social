@@ -62,8 +62,13 @@ export default {
       }
     },
     removeContent(index){
-      // console.log(this.publications.splice(index, 1))
-      this.publications.splice(index, 1)
+      // console.log(this.publications)
+      // console.log("ID: " + index)
+      for(let i = 0; i < this.publications.length; i++) {
+        if(this.publications[i].id == index) {      
+          this.publications.splice(i, 1)
+        }
+      }
     },
     addContent(content){
       let temp = {
@@ -77,6 +82,7 @@ export default {
     deleteAllContent(content){
       if(content == 'y') {
         this.publications = []
+        this.id = 0
       }
     }
   }
