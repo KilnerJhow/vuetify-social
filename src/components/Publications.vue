@@ -9,7 +9,7 @@
             <v-spacer></v-spacer>
             <v-dialog v-model="dialog" width="700">
               <template v-slot:activator="{ on, attrs }">
-                <v-btn v-bind="attrs" v-on="on" text>
+                <v-btn v-bind="attrs" v-on="on" text @click="showContent()">
                   <v-icon>mdi-pencil-outline</v-icon>
                 </v-btn>
               </template>
@@ -47,10 +47,10 @@
                 <v-card-title>Você tem certeza de que deseja excluir?</v-card-title>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn text @click="removeContent()" color="red">
+                  <v-btn text @click="removeContent()" color="primary">
                     Sim
                   </v-btn>
-                  <v-btn text @click="dialog_delete=false">Não</v-btn>
+                  <v-btn text @click="dialog_delete=false" color="red">Não</v-btn>
                 </v-card-actions>
               </v-card>
             </v-dialog>
@@ -61,7 +61,7 @@
             </v-card>
           </v-row>
           <v-row justify="space-between">
-            <v-btn plain>
+            <v-btn plain @click="test()">
               <v-icon>mdi-thumb-up-outline</v-icon>
             </v-btn>
             <v-btn plain>
@@ -90,27 +90,34 @@ export default {
       }
     }
   },
-  props: ['publicationProp', 'index'],
+  props: ['publicationProp'],
   data () {
     return {
       dialog_delete: false,
       dialog: false,
-      textField: this.publicationProp.text
+      textField: ''
     }
   },
   methods: {
     changeContent() {
-      console.log("Enviado ao main: " + this.textField)
+      // console.log("Enviado ao main: " + this.textField)
       let content = {
         text: this.textField,
-        index: this.index
+        index: this.publicationProp.id
       }
       this.dialog = false
       this.$emit('change-content', content)
     },
     removeContent(){
-      console.log("Removendo conteúdo " + this.index)
-      this.$emit('remove-content', this.index)
+      // console.log("Removendo conteúdo " + this.publicationProp.id)
+      this.$emit('remove-content', this.publicationProp.id)
+      this.dialog_delete = false
+    },
+    showContent(){
+      this.textField = this.publicationProp.text
+    },
+    test() {
+      console.log(this.textField)
     }
   }
 }

@@ -29,7 +29,7 @@ export default {
                     text: this.text,
                     name: "Jonathan Kilner"
                 }
-                console.log("Adicionando " + this.text)
+                // console.log("Adicionando " + this.text)
                 this.$emit('publish', publication)
                 this.text=''
             }
