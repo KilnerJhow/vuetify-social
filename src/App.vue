@@ -3,7 +3,7 @@
     <v-main class="grey lighten-4">
       <tool-bar @delete-all="deleteAllContent($event)"/>
       <add-publication @publish="addContent($event)"/>
-      <div v-for="(publication, index) in reversePublication" :key="index">
+      <div v-for="(publication, index) in publications" :key="index">
       <!-- <div v-for="(publication, index) in publications.slice().reverse()" :key="index"> -->
         <publications 
           :publicationProp="publication"
@@ -68,7 +68,8 @@ export default {
         text: content.text,
         id: this.id
       }
-      this.publications.push(temp)
+      // this.publications.push(temp)
+      this.publications.unshift(temp) 
       this.id += 1
     },
     deleteAllContent(content){
